@@ -1,0 +1,15 @@
+---
+title: "."
+execute: 
+  echo: false
+---
+```{r}
+#| message: false
+library(tidyverse)
+```
+ 
+```{r}
+d <- read_csv("data/dementia_patients_health_data.csv")
+```
+ 
+ 
