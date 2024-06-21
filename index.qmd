@@ -1,5 +1,4 @@
 ---
-title: "."
 execute: 
   echo: false
 ---
@@ -9,7 +8,23 @@ library(tidyverse)
 ```
  
 ```{r}
+#| message: false
 d <- read_csv("data/dementia_patients_health_data.csv")
+```
+ 
+
+ 
+```{r}
+filtered_data <- d %>% select(Weight, Dementia)
+
+filtered_data |> ggplot(data,mapping = aes(x = Weight, fill = as.factor(Dementia))) +
+  geom_density(alpha = 0.5) +
+  labs(title = "Density Plot of Weight by Dementia Status",
+       x = "Weight",
+       y = "Density",
+       fill = "Dementia Status",
+       color = "Dementia Status") +
+  theme_minimal()
 ```
  
  
